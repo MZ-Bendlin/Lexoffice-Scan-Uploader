@@ -44,7 +44,7 @@ docker-compose up -d
 
 ## Schnellstart
 
-1. Führen den Befehl auf deinem Docker-Host aus.
+1. Führe den Befehl auf deinem Docker-Host aus.
 ```sh
 docker pull mz-bendlin/lexoffice-scan-uploader:latest
 docker run -d --name lexoffice-uploader -e LEXOFFICE_API_KEY=your_actual_api_key -e TZ=Europe/Berlin -v /path/to/local/upload:/upload mz-bendlin/lexoffice-scan-uploader
