@@ -5,6 +5,7 @@ FROM ubuntu:latest
 RUN apt-get update && apt-get upgrade && apt-get install -y \
     inotify-tools \
     curl \
+    tzdata \
     && rm -rf /var/lib/apt/lists/*
 
 # Setze das Arbeitsverzeichnis innerhalb des Containers

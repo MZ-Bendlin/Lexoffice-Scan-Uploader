@@ -28,6 +28,7 @@ Ein Docker-basierter Dienst zum automatischen Hochladen von Dateien zu Lexoffice
         container_name: lexoffice-scan-uploader
         environment:
           - LEXOFFICE_API_KEY=your_actual_api_key
+          - TZ=Europe/Berlin
         volumes:
           - /path/to/local/upload:/upload
         restart: unless-stopped
@@ -46,7 +47,7 @@ docker-compose up -d
 1. Führen den Befehl auf deinem Docker-Host aus.
 ```sh
 docker pull mzbendlin/serverlexoffice-scan-uploader:latest
-docker run -d --name lexoffice-uploader -e LEXOFFICE_API_KEY=your_actual_api_key -v /path/to/local/upload:/upload mz-bendlin/lexoffice-scan-uploader
+docker run -d --name lexoffice-uploader -e LEXOFFICE_API_KEY=your_actual_api_key -e TZ=Europe/Berlin -v /path/to/local/upload:/upload mz-bendlin/lexoffice-scan-uploader
 ```
 
 2. Ersetze `your_actual_api_key` durch deinen tatsächlichen Lexoffice API-Schlüssel und `/path/to/local/upload` durch den Pfad zum lokalen Verzeichnis, das überwacht werden soll.

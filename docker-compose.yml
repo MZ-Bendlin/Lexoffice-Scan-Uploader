@@ -6,6 +6,7 @@ services:
     container_name: lexoffice-scan-uploader
     environment:
       - LEXOFFICE_API_KEY=your_actual_api_key
+      - TZ=Europe/Berlin
     volumes:
       - /path/to/local/upload:/upload
     restart: unless-stopped
