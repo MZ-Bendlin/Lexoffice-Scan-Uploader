@@ -51,7 +51,6 @@ docker run -d --name lexoffice-uploader -e LEXOFFICE_API_KEY=your_actual_api_key
 ```
 
 2. Ersetze `your_actual_api_key` durch deinen tatsächlichen Lexoffice API-Schlüssel und `/path/to/local/upload` durch den Pfad zum lokalen Verzeichnis, das überwacht werden soll.
-## Starten des Dienstes
 
 * * *
 # Skript `lex-upload.sh`
