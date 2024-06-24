@@ -14,7 +14,7 @@ Ein Docker-basierter Dienst zum automatischen Hochladen von Dateien zu Lexoffice
 2. Erstelle das Docker-Image:
 
     ```sh
-    docker build -t lexoffice-uploader:latest .
+    docker build -t lexoffice-scan-uploader:latest .
     ```
 
 3. Erstelle eine Datei namens `docker-compose.yml` im selben Verzeichnis wie die `Dockerfile` und `lex-upload.sh`, und füge den folgenden Inhalt ein:
