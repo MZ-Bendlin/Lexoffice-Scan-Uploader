@@ -1,0 +1,11 @@
+version: '3.8'
+
+services:
+  lexoffice-uploader:
+    image: lexoffice-uploader:latest
+    container_name: lexoffice-uploader
+    environment:
+      - LEXOFFICE_API_KEY=your_actual_api_key
+    volumes:
+      - /path/to/local/upload:/upload
+    restart: unless-stopped

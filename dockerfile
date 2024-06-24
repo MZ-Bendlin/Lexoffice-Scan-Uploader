@@ -1,4 +1,4 @@
-# Verwende ein Basisimage, das Bash unterstützt
+# Verwende ein Basisimage, mit Bash unterstützung
 FROM ubuntu:latest
 
 # Installiere erforderliche Pakete (inotify-tools und curl)
@@ -10,7 +10,7 @@ RUN apt-get update && apt-get upgrade && apt-get install -y \
 # Setze das Arbeitsverzeichnis innerhalb des Containers
 WORKDIR /app
 
-# Erstelle ein Verzeichnis für das Skript und die zu überwachenden Dateien
+# Erstelle ein Verzeichnis für die zu überwachenden Dateien
 RUN mkdir -p /upload
 
 # Kopiere das Bash-Skript in den Container
