@@ -47,7 +47,7 @@ docker-compose up -d
 1. Führe den Befehl auf deinem Docker-Host aus.
 ```sh
 docker pull mz571/lexoffice-scan-uploader:latest
-docker run -d --name lexoffice-uploader -e LEXOFFICE_API_KEY=your_actual_api_key -e TZ=Europe/Berlin -v /path/to/local/upload:/upload mz-bendlin/lexoffice-scan-uploader
+docker run -d --name lexoffice-uploader -e LEXOFFICE_API_KEY=your_actual_api_key -e TZ=Europe/Berlin -v /path/to/local/upload:/upload mz571/lexoffice-scan-uploader
 ```
 
 2. Ersetze `your_actual_api_key` durch deinen tatsächlichen Lexoffice API-Schlüssel und `/path/to/local/upload` durch den Pfad zum lokalen Verzeichnis, das überwacht werden soll.
