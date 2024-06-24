@@ -2,8 +2,8 @@ version: '3.8'
 
 services:
   lexoffice-uploader:
-    image: lexoffice-uploader:latest
-    container_name: lexoffice-uploader
+    image: lexoffice-scan-uploader:latest
+    container_name: lexoffice-scan-uploader
     environment:
       - LEXOFFICE_API_KEY=your_actual_api_key
     volumes:
