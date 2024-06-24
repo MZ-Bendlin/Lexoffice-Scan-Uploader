@@ -2,7 +2,7 @@
 FROM ubuntu:latest
 
 # Installiere erforderliche Pakete (inotify-tools und curl)
-RUN apt-get update && apt-get install -y \
+RUN apt-get update && apt-get upgrade && apt-get install -y \
     inotify-tools \
     curl \
     && rm -rf /var/lib/apt/lists/*
