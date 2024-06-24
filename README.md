@@ -9,7 +9,7 @@ Ein Docker-basierter Dienst zum automatischen Hochladen von Dateien zu Lexoffice
 
 ## Image selbst bauen.
 
-1. Klone das Repository oder lade die Dateien `Dockerfile`, `lex-upload.sh` und `docker-compose.yml` herunte und lege die Dateien in ein Verzeichnis.
+1. Klone das Repository oder lade die Dateien `Dockerfile`, `lex-upload.sh` und `docker-compose.yml` herunter und lege die Dateien in ein Verzeichnis.
 
 2. Erstelle das Docker-Image:
 
@@ -35,6 +35,12 @@ Ein Docker-basierter Dienst zum automatischen Hochladen von Dateien zu Lexoffice
 
 4. Ersetze `your_actual_api_key` durch deinen tatsächlichen Lexoffice API-Schlüssel und `/path/to/local/upload` durch den Pfad zum lokalen Verzeichnis, das überwacht werden soll.
 
+5. Starte den Dienst mit Docker Compose:
+
+```sh
+docker-compose up -d
+```
+
 ## Schnellstart
 
 1. Führen den Befehl auf deinem Docker-Host aus.
@@ -46,15 +52,14 @@ docker run -d --name lexoffice-uploader -e LEXOFFICE_API_KEY=your_actual_api_key
 2. Ersetze `your_actual_api_key` durch deinen tatsächlichen Lexoffice API-Schlüssel und `/path/to/local/upload` durch den Pfad zum lokalen Verzeichnis, das überwacht werden soll.
 ## Starten des Dienstes
 
-Starte den Dienst mit Docker Compose:
-
-```sh
-docker-compose up -d
-```
 * * *
 # Skript `lex-upload.sh`
 
-Das Skript `lex-upload.sh` überwacht das Verzeichnis `/upload` auf neue Dateien. Es prüft die Dateigröße und Dateityp und lädt geeignete Dateien zu Lexoffice hoch. Dateien, die die Kriterien nicht erfüllen, werden in den Unterordner `/upload/errors` verschoben.
+Das Skript `lex-upload.sh` überwacht das Verzeichnis `/upload` auf neue Dateien. Es prüft die Dateigröße und Dateityp und lädt geeignete Dateien zu Lexoffice hoch.
+
+Bei einem Fehler oder überschreiten der maximal erlaubten Deteigröße, werden die Deteien in den Unterordner `/upload/errors` verschoben.
+
+Dateien die erfolgreich zu Lexoffice hochgeladen wurden, werden automatisch gelöscht.
 
 ## Unterstützte Dateitypen
 
@@ -69,6 +74,8 @@ Das Skript `lex-upload.sh` überwacht das Verzeichnis `/upload` auf neue Dateien
 ## Logs und Fehler
 
 Alle Meldungen des Skripts werden mit einem Zeitstempel versehen. Dateien, die nicht hochgeladen werden können (aufgrund von Größe oder Serverfehlern), werden in den Ordner `/upload/errors` verschoben.
+
+Datein die keinem unterstützen Dateitypen entsprechen, werden ingoriert und verbeliben unbearbeitet im Uploadeverzeichnis.
 
 ## Beispiel Verzeichnisstruktur
 
