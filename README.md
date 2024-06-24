@@ -7,16 +7,14 @@ Ein Docker-basierter Dienst zum automatischen Hochladen von Dateien zu Lexoffice
 - Docker
 - Docker Compose
 
-## Installation
+## Image selbst bauen.
 
-1. Klone das Repository oder lade die Dateien `Dockerfile`, `lex-upload.sh` und `docker-compose.yml` herunter.
-
-Oder Lader dir das Image auf Dockerhub herunter.
+1. Klone das Repository oder lade die Dateien `Dockerfile`, `lex-upload.sh` und `docker-compose.yml` herunte und lege die Dateien in ein Verzeichnis.
 
 2. Erstelle das Docker-Image:
 
     ```sh
-    docker build -t lexoffice-uploader .
+    docker build -t lexoffice-uploader:latest .
     ```
 
 3. Erstelle eine Datei namens `docker-compose.yml` im selben Verzeichnis wie die `Dockerfile` und `lex-upload.sh`, und füge den folgenden Inhalt ein:
@@ -37,6 +35,15 @@ Oder Lader dir das Image auf Dockerhub herunter.
 
 4. Ersetze `your_actual_api_key` durch deinen tatsächlichen Lexoffice API-Schlüssel und `/path/to/local/upload` durch den Pfad zum lokalen Verzeichnis, das überwacht werden soll.
 
+## Schnellstart
+
+1. Führen den Befehl auf deinem Docker-Host aus.
+```sh
+docker pull mzbendlin/serverlexoffice-scan-uploader:latest
+docker run -d --name lexoffice-uploader -e LEXOFFICE_API_KEY=your_actual_api_key -v /path/to/local/upload:/upload mz-bendlin/lexoffice-scan-uploader
+```
+
+2. Ersetze `your_actual_api_key` durch deinen tatsächlichen Lexoffice API-Schlüssel und `/path/to/local/upload` durch den Pfad zum lokalen Verzeichnis, das überwacht werden soll.
 ## Starten des Dienstes
 
 Starte den Dienst mit Docker Compose:
