@@ -29,8 +29,8 @@ upload_file() {
     local filename="$1"
     local filepath="$watch_dir/$filename"
 
-    # Hier eine Pause von 5 Sekunden einfügen (kann je nach Bedarf angepasst werden)
-    sleep 5
+    # Hier eine Pause von 20 Sekunden einfügen (kann je nach Bedarf angepasst werden)
+    sleep 20
     
     # Dateigröße überprüfen
     file_size=$(stat -c%s "$filepath")
