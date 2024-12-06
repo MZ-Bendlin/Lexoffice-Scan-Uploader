@@ -12,6 +12,15 @@ timestamp() {
     date +"%Y-%m-%d %H:%M:%S"
 }
 
+# Signal-Handling für sauberes Beenden
+cleanup() {
+    echo "$(timestamp) - Signal zum Beenden erhalten. Skript wird sauber beendet."
+    exit 0
+}
+
+# Signale abfangen (SIGTERM, SIGINT)
+trap cleanup SIGTERM SIGINT
+
 # Überprüfen, ob die Umgebungsvariable gesetzt ist
 if [ -z "$LEXOFFICE_API_KEY" ]; then
     echo "$(timestamp) - Die Umgebungsvariable LEXOFFICE_API_KEY ist nicht gesetzt."

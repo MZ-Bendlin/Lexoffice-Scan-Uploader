@@ -20,5 +20,5 @@ COPY lex-upload.sh /app/lex-upload.sh
 # Setze Ausführbarkeit für das Bash-Skript
 RUN chmod +x /app/lex-upload.sh
 
-# Starte das Bash-Skript beim Starten des Containers
-CMD ["/bin/bash", "/app/lex-upload.sh"]
+# Starte das Bash-Skript beim Starten des Containers und sorge für sauberes Beenden
+CMD ["/bin/bash", "-c", "/app/lex-upload.sh; exit 0"]
