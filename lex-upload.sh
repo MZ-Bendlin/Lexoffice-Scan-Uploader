@@ -76,7 +76,8 @@ upload_file() {
     fi
 }
 
-# Überwachung des Ordners auf neue Dateien
+# Funktion, um das inotifywait im Hintergrund zu starten
+start_inotifywait() {
 inotifywait -m -e create -e moved_to --format '%f' "$watch_dir" | while read -r filename
 do
     # Konvertiere den Dateinamen in Kleinbuchstaben
@@ -85,3 +86,10 @@ do
         upload_file "$filename"
     fi
 done
+}
+
+# Starte die Dateiüberwachung im Hintergrund
+start_inotifywait &
+
+# Warten, bis der Container gestoppt wird, ohne die Verarbeitung zu blockieren
+wait
