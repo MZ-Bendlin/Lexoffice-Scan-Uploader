@@ -54,7 +54,7 @@ upload_file() {
 
     # Datei hochladen mit cURL
     response=$(curl -w "\n%{http_code}" -s \
-        -X POST "https://api.lexoffice.io/v1/files" \
+        -X POST "https://api.lexware.io/v1/files" \
         -H "Authorization: Bearer $LEXOFFICE_API_KEY" \
         -H "Content-Type: multipart/form-data" \
         -H "Accept: application/json" \
